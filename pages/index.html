@@ -1,3 +1,26 @@
+<!-- pages/index.html -->
 
-<h1>Welcome To the Site</h1>
-<p>Insert marketing copy here.</p>
+<div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+            <a class="toc item"><i class="sidebar icon"></i></a>
+            <a href="/" 
+                class="item">Rapid Prototypes</a>
+            <a href="/" 
+                class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+            <a href="{% url 'page' 'contact' %}" 
+                class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
+            <div class="right item">
+                <a href="{% url 'page' 'login' %}" 
+                    class="{% if slug == 'login' %}active{% endif %} ui inverted button">Log in</a>
+                <a href="{% url 'page' 'signup' %}" 
+                    class="{% if slug == 'signup' %}active{% endif %} ui inverted button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="ui text container">
+        <h1 class="ui inverted header">Welcome to Prototype.</h1>
+        <h2>Insert marketing copy here.</h2>
+        <div class="ui huge primary button">Get Started<i class="right arrow icon"></i></div>
+    </div>  
+</div>
