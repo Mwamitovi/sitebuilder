@@ -10,8 +10,37 @@
     <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    {% block content %}{% endblock content %}
+<body id="{% block body-id %}body{% endblock %}" class="pushable">
+    <!-- Main Menu -->
+    <div class="ui large top fixed menu transition hidden">
+        <div class="ui container">
+            <a href="/" 
+                class="item">Rapid Prototypes</a>
+            <a href="/" 
+                class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+            <a href="{% url 'page' 'contact' %}" 
+                class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
+            <div class="right menu">
+                <div class="{% if slug == 'login' %}active{% endif %} item">
+                    <a href="{% url 'page' 'login' %}" class="ui button">Log in</a>
+                </div>
+                <div class="{% if slug == 'signup' %}active{% endif %} item">
+                    <a href="{% url 'page' 'signup' %}" class="ui primary button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu left">
+        <a class="active item">Home</a>
+        <a class="item">contact</a>
+        <a class="item">Log in</a>
+        <a class="item">Sign up</a>
+    </div>
+    <!-- Page Contents -->
+    <div class="pusher">
+        {% block content %}{% endblock content %}          
+    </div>
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/semantic.min.js' %}"></script>
     <script type="text/javascript">
