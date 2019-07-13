@@ -35,7 +35,7 @@ def page(request, slug='index'):
         'slug': slug,
         'page': _page,
     }
-    return render(request, 'page.html', context )
+    return render(request, 'page.html', context)
 
 
 
