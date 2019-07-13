@@ -1,5 +1,6 @@
 <!-- pages/index.html -->
 
+<!-- main content -->
 <div class="ui inverted vertical masthead center aligned segment">
     <div class="ui container">
         <div class="ui large secondary inverted pointing menu">
@@ -23,4 +24,16 @@
         <h2>Insert marketing copy here.</h2>
         <div class="ui huge primary button">Get Started<i class="right arrow icon"></i></div>
     </div>  
+</div>
+<!-- other content -->
+<div class="ui vertical stripe segment">
+    <div class="ui text container">
+        <h3 class="ui header">About</h3>
+        <p>{% lorem %}</p>
+        <a href="#" class="ui large button">Read More</a>
+        <h4 class="ui horizontal header divider"><a href="#">Our Works</a></h4>
+        <h3 class="ui header">Contact</h3>
+        <p>{% lorem %}</p>
+        <a href="{% url 'page' 'contact' %}" class="ui large button">Am Interested</a>
+    </div>
 </div>
