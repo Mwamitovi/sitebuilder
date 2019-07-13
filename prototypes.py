@@ -14,7 +14,7 @@ settings.configure(
         'django.contrib.staticfiles',
         'sitebuilder',
     ),
-    STATC_URL='/static/',
+    STATIC_URL='/static/',
 )
 
 
