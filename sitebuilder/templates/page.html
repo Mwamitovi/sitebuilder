@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ slug|capfirst }} | {{ block.super}} 
+{% endblock title %}
+
+{% block content %}
+    {% include page %}
+{% endblock content %}
