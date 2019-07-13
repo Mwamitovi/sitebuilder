@@ -25,6 +25,19 @@ def get_page_or_404(name):
     return page
 
 
+def page(request, slug='index'):
+    """
+    Render the requested page if found.
+    """
+    _file_name = '{}.html'.format(slug)
+    _page = get_page_or_404(_file_name)
+    context = {
+        'slug': slug,
+        'page': _page,
+    }
+    return render(request, 'page.html', context )
+
+
 
 
 
