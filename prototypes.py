@@ -12,7 +12,6 @@ settings.configure(
     ROOT_URLCONF='sitebuilder.urls',
     INSTALLED_APPS=(
         'django.contrib.staticfiles',
-        'django.contrib.webdesign',
         'sitebuilder',
     ),
     STATC_URL='/static/',
