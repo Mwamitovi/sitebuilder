@@ -20,7 +20,9 @@ body.pushable#signup {
     body#login .sidebar.menu,
     body#signup .footer,
     body#signup .fixed.menu,
-    body#signup .sidebar.menu { 
+    body#signup .sidebar.menu, 
+    body#pricing .footer,
+    body#pricing .sidebar.menu { 
         display: none; 
     }
 
@@ -33,11 +35,13 @@ body.pushable#contact  {
     display: #ffffff !important;
     }
 
-    body#contact .ui.vertical.stripe {
+    body#contact .ui.vertical.stripe,
+    body#pricing .ui.vertical.stripe {
         padding: 6em 0em;
     }
     
-    body#contact .ui.vertical.stripe .horizontal.divider {
+    body#contact .ui.vertical.stripe .horizontal.divider,
+    body#pricing .ui.vertical.stripe .horizontal.divider {
         margin: 2em 0em;
     }
 
@@ -56,6 +60,10 @@ body.pushable#contact  {
     body#contact .footer {
         display: none;
     }
+
+body#pricing .card .content:first-of-type h4 {
+    font-size: 1.25rem;
+}
 
 .hidden.menu {
     display: none;
