@@ -6,12 +6,15 @@ from django.conf import settings
 
 BASE_DIR = os.path.dirname(__file__)
 
-SECRET_KEY = os.environ.get('SECRET_KEY', os.urandom(32))
+SECRET_KEY = os.environ.get('SECRET_KEY', 'v^2tcqnt=emq3gtj!93+-ngxb59a9p(o0_f1m*+43wv%1-@)*+')
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['127.0.0.1', 'localhost', 'testserver'])
 
 settings.configure(
     DEBUG=True,
     SECRET_KEY=SECRET_KEY,
     ROOT_URLCONF='sitebuilder.urls',
+    ALLOWED_HOSTS=ALLOWED_HOSTS,
     INSTALLED_APPS=(
         'django.contrib.staticfiles',
         'sitebuilder',
