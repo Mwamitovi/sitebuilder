@@ -15,6 +15,7 @@ settings.configure(
     SECRET_KEY=SECRET_KEY,
     ROOT_URLCONF='sitebuilder.urls',
     ALLOWED_HOSTS=ALLOWED_HOSTS,
+    MIDDLEWARE_CLASSES=(),
     INSTALLED_APPS=(
         'django.contrib.staticfiles',
         'sitebuilder',
@@ -30,6 +31,7 @@ settings.configure(
     SITE_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages'),
     SITE_OUTPUT_DIRECTORY=os.path.join(BASE_DIR, '_build'),
     STATIC_ROOT=os.path.join(BASE_DIR, '_build', 'static'),
+    STATICFILES_STORAGE='django.contrib.staticfiles.storage.ManifestStaticFilesStorage',
 )
 
 
