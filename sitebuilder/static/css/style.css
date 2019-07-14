@@ -1,5 +1,27 @@
 /* sitebuilder/static/css/style.css (v0.1) @2019 */
 
+body.pushable#login {
+    background-color: #DADADA !important;
+    }
+
+    body#login .middle.grid {
+        height: 100%;
+    }
+
+    body#login .column {
+        max-width: 450px;
+    }
+
+    body#login .footer,
+    body#login .fixed.menu,
+    body#login .sidebar.menu { 
+        display: none; 
+    }
+
+    body#login i.flag:not(.icon):before {
+        height: 15px;
+    }
+
 .hidden.menu {
     display: none;
 }
