@@ -34,6 +34,7 @@ class Command(BaseCommand):
         """
 
         settings.DEBUG = False
+        settings.COMPRESS_ENABLED = True
 
         # check if any arguments are passed into Command()
         # Note: more than one name can be passed at a time
@@ -69,6 +70,7 @@ class Command(BaseCommand):
         # of the site static resources into the STATIC_ROOT,
         # which is configured to be inside the SITE_OUTPUT_DIRECTORY.
         call_command('collectstatic', interactive=False, clear=True, verbosity=0)
+        call_command('compress', interactive=False, force=True)
         client = Client()
 
         # loop and collect
