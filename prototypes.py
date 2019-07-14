@@ -19,6 +19,7 @@ settings.configure(
     INSTALLED_APPS=(
         'django.contrib.staticfiles',
         'sitebuilder',
+        'compressor',
     ),
     TEMPLATES=[
         {
@@ -31,7 +32,12 @@ settings.configure(
     SITE_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages'),
     SITE_OUTPUT_DIRECTORY=os.path.join(BASE_DIR, '_build'),
     STATIC_ROOT=os.path.join(BASE_DIR, '_build', 'static'),
-    STATICFILES_STORAGE='django.contrib.staticfiles.storage.ManifestStaticFilesStorage',
+    # STATICFILES_STORAGE='django.contrib.staticfiles.storage.ManifestStaticFilesStorage',
+    STATICFILES_FINDERS=(
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+        'compressor.finders.CompressorFinder',
+    )
 )
 
 
