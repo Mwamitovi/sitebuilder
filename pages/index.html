@@ -10,6 +10,8 @@
                     class="item">Rapid Prototypes</a>
                 <a href="/" 
                     class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+                <a href="{% url 'page' 'pricing' %}" 
+                    class="{% if slug == 'pricing' %}active{% endif %} item">Pricing</a>                    
                 <a href="{% url 'page' 'contact' %}" 
                     class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
                 <div class="right item">
