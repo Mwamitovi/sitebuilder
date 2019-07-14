@@ -1,24 +1,31 @@
 /* sitebuilder/static/css/style.css (v0.1) @2019 */
 
-body.pushable#login {
+body.pushable#login,
+body.pushable#signup {
     background-color: #DADADA !important;
     }
 
-    body#login .middle.grid {
+    body#login .middle.grid,
+    body#signup .middle.grid {
         height: 100%;
     }
 
-    body#login .column {
+    body#login .column,
+    body#signup .column {
         max-width: 450px;
     }
 
     body#login .footer,
     body#login .fixed.menu,
-    body#login .sidebar.menu { 
+    body#login .sidebar.menu,
+    body#signup .footer,
+    body#signup .fixed.menu,
+    body#signup .sidebar.menu { 
         display: none; 
     }
 
-    body#login i.flag:not(.icon):before {
+    body#login i.flag:not(.icon):before,
+    body#signup i.flag:not(.icon):before {
         height: 15px;
     }
 
