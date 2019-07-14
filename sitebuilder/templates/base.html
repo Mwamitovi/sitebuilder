@@ -20,6 +20,8 @@
                 class="item">Rapid Prototypes</a>
             <a href="/" 
                 class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+            <a href="{% url 'page' 'pricing' %}" 
+                class="{% if slug == 'pricing' %}active{% endif %} item">Pricing</a>
             <a href="{% url 'page' 'contact' %}" 
                 class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
             <div class="right menu">
@@ -34,10 +36,16 @@
     </div>
     <!-- Sidebar Menu -->
     <div class="ui vertical inverted sidebar menu left">
-        <a class="active item">Home</a>
-        <a class="item">contact</a>
-        <a class="item">Log in</a>
-        <a class="item">Sign up</a>
+            <a href="/" 
+                class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+            <a href="{% url 'page' 'pricing' %}" 
+                class="{% if slug == 'pricing' %}active{% endif %} item">Pricing</a>
+            <a href="{% url 'page' 'contact' %}" 
+                class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
+            <a href="{% url 'page' 'login' %}" 
+                class="{% if slug == 'login' %}active{% endif %} item">Log in</a>
+            <a href="{% url 'page' 'signup' %}" 
+                class="{% if slug == 'signup' %}active{% endif %} item">Sign up</a>
     </div>    
     {% block content %}
         <!-- Page Content -->
@@ -87,7 +95,7 @@
                 }
             });
             // create sidebar and attach to menu open
-            if(!($('body#login'))){
+            if(($('body').is('#index'))){
                 $('.ui.sidebar').sidebar('attach events', '.toc.item');
             };
             // login-form handling
@@ -121,8 +129,10 @@
                     }
                 }
             });                  
-            // handling contact page
-            $('body#contact .top.fixed.menu').removeClass("transition hidden");
+            // fix menu for other pages
+            if(!($('body').is('#index'))){
+                $('.top.fixed.menu').removeClass("transition hidden");
+            };
         });
     </script>
     {% endcompress %}
