@@ -33,6 +33,8 @@ class Command(BaseCommand):
         Request pages and build output.
         """
 
+        settings.DEBUG = False
+
         # check if any arguments are passed into Command()
         # Note: more than one name can be passed at a time
         if args:
