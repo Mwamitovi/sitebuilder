@@ -22,6 +22,34 @@ body.pushable#login {
         height: 15px;
     }
 
+body.pushable#contact  {
+    display: #ffffff !important;
+    }
+
+    body#contact .ui.vertical.stripe {
+        padding: 6em 0em;
+    }
+    
+    body#contact .ui.vertical.stripe .horizontal.divider {
+        margin: 2em 0em;
+    }
+
+    body#contact .ui.text.container {
+        max-width: 600px !important;
+    }
+
+    body#contact .column {
+        max-width: 450px;
+    }
+
+    body#contact .ui.form textarea:not([rows]) {
+        height: 8em;
+    }
+
+    body#contact .footer {
+        display: none;
+    }
+
 .hidden.menu {
     display: none;
 }
