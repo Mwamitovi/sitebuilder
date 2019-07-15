@@ -1,9 +1,9 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-env-talk
 db.sqlite3
 .idea/
+.vscode/
 
 # C extensions
 *.so
