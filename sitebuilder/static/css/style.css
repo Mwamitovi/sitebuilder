@@ -63,7 +63,27 @@ body.pushable#contact  {
 
 body#pricing .card .content:first-of-type h4 {
     font-size: 1.25rem;
-}
+    }
+
+    body#pricing .card .content:not(:first-of-type) h4 {
+        color: rgba(0,0,0,0.6);
+    }
+
+    body#pricing .card .content.green {
+        color: #21BA45;
+    }
+
+    body#pricing .card .content.orange {
+        color: #F2711C;
+    }
+
+    body#pricing .card .content.purple {
+        color: #A333C8;
+    }
+
+    body#pricing .card .content.disabled {
+        background: #E0E1E2;
+    }
 
 .hidden.menu {
     display: none;
