@@ -3,7 +3,32 @@
 {% block context %}
     {
         "description": "Product Pricing Plans",
-        "keywords": "products,pricing,buy me"
+        "keywords": "products, pricing, buy me",
+        "plans": [
+            {
+                "name": "Starter",
+                "price": "Free",
+                "class": "green",
+                "features": [1]
+            },
+            {
+                "name": "Basic",
+                "price": "$10 / month",
+                "class": "orange",
+                "features": [1, 2]
+            },
+            {
+                "name": "Paka",
+                "price": "$20 / month",
+                "class": "purple",
+                "features": [1, 2, 3]
+            }
+        ],
+        "features": [
+            "Feature #1",
+            "Feature #2",
+            "Feature #3"
+        ]
     }
 {% endblock %}
 
@@ -14,65 +39,29 @@
             <h4 class="ui horizontal header divider">
                 <a href="#">Contact Us</a>
             </h4>              
-        </div>
+        </div>        
         <div class="ui text container center aligned">
             <div class="ui three cards">
+            <!-- witness the power of json and django -->
+              {% for plan in plans %}    
                 <div class="card">
-                    <div class="content green">
-                        <h4>Starter - Free</h4>
+                    <div class="content {{ plan.class }}">
+                        <h4>{{ plan.name }} - {{ plan.price }}</h4>
                     </div>
-                    <div class="content">
-                        <h4>Feature #1</h4>
-                    </div>
-                    <div class="content disabled">
-                        <h4>Feature #2</h4>
-                    </div>
-                    <div class="content disabled">
-                        <h4>Feature #3</h4>
-                    </div>
+                      {% for feature in features %}
+                        <div 
+                          class="content {% if forloop.counter not in plan.features %}disabled{% endif %}">
+                            <h4>{{ feature }}</h4>
+                        </div>
+                      {% endfor %}
                     <div class="extra content">
-                        <div class="ui fluid large green submit button">Buy Now</div>
-                    </div>
+                        <div class="ui fluid large submit button {{ plan.class }}">Buy Now</div>
+                    </div>                    
                 </div>
-                <div class="card">
-                    <div class="content orange">
-                        <h4>Basic - $5/month</h4>
-                    </div>
-                    <div class="content">
-                        <h4>Feature #1</h4>
-                    </div>
-                    <div class="content">
-                        <h4>Feature #2</h4>
-                    </div>
-                    <div class="content disabled">
-                        <h4>Feature #3</h4>
-                    </div>
-                    <div class="extra content">
-                        <div class="ui fluid large orange submit button">Buy Now</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content purple">
-                        <h4>Paka - $10/month</h4>
-                    </div>
-                    <div class="content">
-                        <h4>Feature #1</h4>
-                    </div>
-                    <div class="content">
-                        <h4>Feature #2</h4>
-                    </div>
-                    <div class="content">
-                        <h4>Feature #3</h4>
-                    </div>
-                    <div class="extra content">
-                        <div class="ui fluid large purple submit button">Buy Now</div>
-                    </div>
-                </div>
+              {% endfor %}
             </div>             
-        </div>
-        <h4 class="ui horizontal header divider">
-            <!-- <a href="#">Contact Us</a> -->
-        </h4>
+        </div>        
+        <h4 class="ui horizontal header divider"></h4>
         <div class="ui text container center aligned">
             {% lorem 15 w %}
         </div>
