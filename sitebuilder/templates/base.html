@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://semantic-ui.com/examples/homepage.html -->
+{% load static compress %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="{{ description|default:'Default Prototype description'}}">
+    <meta name="keywords" content="{{ keywords|default:'prototype'}}">
+    <title>{% block title %}Rapid Prototypes{% endblock title %}</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endcompress %}
+</head>
+<body id="{% block body-id %}body{% endblock %}" class="pushable">
+    <!-- Main Menu -->
+    <div class="ui large top fixed menu transition hidden">
+        <div class="ui container">
+            <a href="/" 
+                class="item">Rapid Prototypes</a>
+            <a href="/" 
+                class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+            <a href="{% url 'page' 'pricing' %}" 
+                class="{% if slug == 'pricing' %}active{% endif %} item">Pricing</a>
+            <a href="{% url 'page' 'contact' %}" 
+                class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
+            <div class="right menu">
+                <div class="{% if slug == 'login' %}active{% endif %} item">
+                    <a href="{% url 'page' 'login' %}" class="ui button">Log in</a>
+                </div>
+                <div class="{% if slug == 'signup' %}active{% endif %} item">
+                    <a href="{% url 'page' 'signup' %}" class="ui primary button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu left">
+            <a href="/" 
+                class="{% if slug == 'index' %}active{% endif %} item">Home</a>
+            <a href="{% url 'page' 'pricing' %}" 
+                class="{% if slug == 'pricing' %}active{% endif %} item">Pricing</a>
+            <a href="{% url 'page' 'contact' %}" 
+                class="{% if slug == 'contact' %}active{% endif %} item">Contact</a>
+            <a href="{% url 'page' 'login' %}" 
+                class="{% if slug == 'login' %}active{% endif %} item">Log in</a>
+            <a href="{% url 'page' 'signup' %}" 
+                class="{% if slug == 'signup' %}active{% endif %} item">Sign up</a>
+    </div>    
+    {% block content %}
+        <!-- Page Content -->
+    {% endblock content %}          
+    <!-- footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Sitemap</a>
+                        <a href="#" class="item">Contact Us</a>
+                        <a href="#" class="item">Events</a>
+                        <a href="https://github.com/Mwamitovi" class="item">
+                            MwamiTovi &copy; {% now 'Y' %}
+                        </a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Services</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Pre-Order</a>
+                        <a href="#" class="item">FAQ</a>
+                        <a href="#" class="item">How To Access</a>
+                        <a href="#" class="item">Favorite Prototype</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">Get involved.</h4>
+                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% compress js %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/semantic.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {          
+            // fix menu when passed
+            $('.masthead').visibility({
+                once: false,
+                onBottomPassed: function() {
+                    $('.fixed.menu').transition('fade in');
+                },
+                onBottomPassedReverse: function() {
+                    $('.fixed.menu').transition('fade out');
+                }
+            });
+            // create sidebar and attach to menu open
+            if(($('body').is('#index'))){
+                $('.ui.sidebar').sidebar('attach events', '.toc.item');
+            };
+            // login-form handling
+            $('body#login .ui.form').form({
+                fields: {
+                    email: {
+                        identifier  : 'email',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : 'Please enter your e-mail'
+                            },
+                            {
+                                type   : 'email',
+                                prompt : 'Please enter a valid e-mail'
+                            }
+                        ]
+                    },
+                    password: {
+                        identifier  : 'password',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : 'Please enter your password'
+                            },
+                            {
+                                type   : 'length[6]',
+                                prompt : 'Your password must be at least 6 characters'
+                            }
+                        ]
+                    }
+                }
+            });                  
+            // fix menu for other pages
+            if(!($('body').is('#index'))){
+                $('.top.fixed.menu').removeClass("transition hidden");
+            };
+        });
+    </script>
+    {% endcompress %}
+</body>
+</html>

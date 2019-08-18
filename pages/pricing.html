@@ -1,0 +1,69 @@
+<!-- pages/pricing.html -->
+
+{% block context %}
+    {
+        "description": "Product Pricing Plans",
+        "keywords": "products, pricing, buy me",
+        "plans": [
+            {
+                "name": "Starter",
+                "price": "Free",
+                "class": "green",
+                "features": [1]
+            },
+            {
+                "name": "Basic",
+                "price": "$10 / month",
+                "class": "orange",
+                "features": [1, 2]
+            },
+            {
+                "name": "Paka",
+                "price": "$20 / month",
+                "class": "purple",
+                "features": [1, 2, 3]
+            }
+        ],
+        "features": [
+            "Feature #1",
+            "Feature #2",
+            "Feature #3"
+        ]
+    }
+{% endblock %}
+
+<div class="pusher">
+    <div class="ui vertical stripe segment">
+        <div class="ui text container">
+            <h3 class="ui header">Available Plans</h3>
+            <h4 class="ui horizontal header divider">
+                <a href="#">Contact Us</a>
+            </h4>              
+        </div>        
+        <div class="ui text container center aligned">
+            <div class="ui three cards">
+            <!-- witness the power of json and django -->
+              {% for plan in plans %}    
+                <div class="card">
+                    <div class="content {{ plan.class }}">
+                        <h4>{{ plan.name }} - {{ plan.price }}</h4>
+                    </div>
+                      {% for feature in features %}
+                        <div 
+                          class="content {% if forloop.counter not in plan.features %}disabled{% endif %}">
+                            <h4>{{ feature }}</h4>
+                        </div>
+                      {% endfor %}
+                    <div class="extra content">
+                        <div class="ui fluid large submit button {{ plan.class }}">Buy Now</div>
+                    </div>                    
+                </div>
+              {% endfor %}
+            </div>             
+        </div>        
+        <h4 class="ui horizontal header divider"></h4>
+        <div class="ui text container center aligned">
+            {% lorem 15 w %}
+        </div>
+    </div>
+</div>
